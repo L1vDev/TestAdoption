@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Registrar Mascota
+{% endblock %}
+
+
+{% block content %}
+<form id="register-form" method="post" enctype="multipart/form-data">
+    <div class="card">
+        <div class="card-header">
+            Registrar Mascota
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                {% csrf_token %}
+                {% for field in form.visible_fields %}
+                <label for="{{field.name}}">{{field.label}}</label>
+                {{field}}
+                <br>
+                {% endfor %}
+                <br>
+                <button id="register-button" class="btn btn-primary" type="submit"><i class="bi bi-check2"></i>
+                    <small>Registrar</small></button>
+                <a id="cancel-button" class="btn btn-secondary" type="button" href="{% url 'mascotas' %}"><i
+                        class="bi bi-x-lg"></i><small
+                        class="d-md-inline d-none"> Cancelar</small></a>
+                <button id="delete-form" class="btn btn-outline-danger" type="button"><i class="bi bi-trash3"></i><small class="d-md-inline d-none"> Limpiar Campos</small></button>
+            </div>
+        </div>
+    </div>
+</form>
+{% block scripts %}
+<!--Sweet alert-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="">
+    {% if form.errors %}
+        var errores = "";
+        {% for field in form %}
+            {% for error in field.errors %}
+                errores +=`{{error}}\n`;
+                var error_field = document.getElementById(`id_{{field.name}}`);
+                error_field.value = ""
+            {% endfor %}
+        {% endfor %}
+        Swal.fire({
+            icon: "error",
+            title: "Error!!",
+            text: errores
+        });
+    {% endif %}    
+</script>
+<script src="{% static 'js/deleteForm.js' %}"></script>
+{% endblock %}
+
+{% endblock %}

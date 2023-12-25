@@ -1,0 +1,20 @@
+databases:
+  - name: PETitiondb
+    databaseName: PETitiondb
+    user: L1vDev
+
+services:
+  - type: web
+    name: PETition
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn mysite.wsgi:application"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: PETition
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: WEB_CONCURRENCY
+        value: 4

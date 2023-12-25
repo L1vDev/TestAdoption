@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        {% for mascota in mascotas %}
+        <div class="col-sm-6 col-lg-4 col-xl-3">
+            <div class="card  ms-3 mb-4" style="width: 15rem;">
+                <img src="/files/{{mascota.imagen}}" class="card-img-top" style="height: 10rem;" alt="">
+                <div class="card-body">
+                    <h3>{{mascota.name}}</h3>
+                    <p class="card-text"><b>Edad: </b>{{mascota.age}}</p>
+                    <p class="card-text"><small class="text-body-secondary">Llegada: {{mascota.entry_date}}</small></p>
+                    <div>
+                        <a href="{% url 'adoption' %}?mascota_id={{ mascota.id }}" class="btn btn-primary"><i
+                                class="bi bi-check-lg d-md-none"></i><small class="d-md-inline d-none">
+                                Adoptar</small></a>
+                        <a href="{% url 'infomascota' mascota.id %}" class="btn btn-secondary"><i
+                                class="bi bi-plus-lg d-md-none"></i><small class="d-md-inline d-none"> Ver
+                                Mas</small></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,117 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  color: #106eea;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3b8af2;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Roboto", sans-serif;
+}
+
+footer {
+  margin-top: auto;
+}
+
+/*Navbar*/
+.navbar {
+  padding: 0;
+}
+
+
+.navbar>ul>li {
+  white-space: nowrap;
+  padding: 10px 0 10px 28px;
+}
+
+small,
+.navbar a,
+.navbar a:focus {
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 600;
+  color: #dad7d7;
+  position: relative;
+}
+
+/*Subline Links*/
+#subline::before{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -7px;
+  left: 0;
+  background-color: #ececea;
+  visibility: visible;
+  width: 0px;
+  transition: all 0.3s ease-in-out 0s;
+}
+#subline:hover::before{
+  width: 100%;
+}
+
+/*Subline offcanvas links*/
+#sl-offcanvas::before{
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: 0px;
+  left: 0;
+  background-color: #ececea;
+  visibility: visible;
+  width: 0px;
+  transition: all 0.3s ease-in-out 0s;
+}
+#sl-offcanvas:hover::before{
+  width: 100%;
+}
+
+.nav-item .active,
+.nav-item .active:focus,
+.nav-item a:hover{
+  color: #f7f2ef;
+}
+/*
+.navbar a:hover,
+.navbar .active,
+.navbar .active:focus,
+.navbar li:hover>a {
+  color: #f7f2ef;
+}
+*/
+
+.dropdown-menu .dropdown-item:hover{
+  background-color: #7472728c;
+}
+
+hr{
+  margin:1rem 0;
+  color:inherit;
+  border:0;
+  border-top:var(--bs-border-width) solid;
+  opacity:.25
+}
+
+.text-white-50{
+  --bs-text-opacity:1;
+  color:rgba(255,255,255,.5)!important
+}
