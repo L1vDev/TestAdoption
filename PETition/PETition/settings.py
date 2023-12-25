@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', default='django-insecure-ssdvisj98y2l0jg67v!#j^2@j4v+jsb$-+#icl6@-qooh!z-39')
+SECRET_KEY = os.environ.get('SECRET_KEY', default='')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
@@ -83,7 +83,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://petitiondb_mtq0_user:Xn9cizuMvwnX2cWlFpGtZOheKspWneVx@dpg-cm4j1a21hbls73adu2hg-a.oregon-postgres.render.com/petitiondb_mtq0',
+        default='postgresql://postgres:postgres@localhost:5432/PETition',
         conn_max_age=600
     )
 }
