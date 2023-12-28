@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}
 Images
 {% endblock %}
@@ -11,4 +11,8 @@ Images
     </div>
     <br>
 {% endfor %}
+
+{% block scripts %}
+<script src="{% static 'js/test.js' %}"></script>
+{% endblock %}
 {% endblock %}
