@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Add Imagen
+{% endblock %}
+
+{% block content %}
+<div>
+    <form id="register-form" method="post" enctype="multipart/form-data">
+        <div class="card">
+            <div class="card-header">
+                Registrar Mascota
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    {% csrf_token %}
+                    {% for field in form.visible_fields %}
+                    <label for="{{field.name}}">{{field.label}}</label>
+                    {{field}}
+                    <br>
+                    {% endfor %}
+                    <br>
+                    <button id="register-button" class="btn btn-primary" type="submit"><i
+                            class="bi bi-check-lg"></i><small>
+                            Registrar</small></button>
+                    <a id="cancel-button" class="btn btn-secondary" type="button" href="#">
+                        <i class="bi bi-x-lg"></i><small class="d-md-inline d-none"> Cancelar</small></a>
+                    <button id="delete-form" class="btn btn-outline-danger" type="button"><small
+                            class="d-md-inline d-none"><i class="bi bi-trash3"></i> Limpiar Campos</small></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+{% block scripts %}
+<script src=" {% static 'js/deleteForm.js' %}"></script>
+{% endblock %}
+{% endblock %}

@@ -7,7 +7,7 @@ Images
 {% block content %}
 {% for image in images %}
     <div>
-        {{image}}
+        <img src="/media/{{image.img}}" width="30px" height="30px" alt=".">
     </div>
     <br>
 {% endfor %}
